@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf9; /* stone-50, cálido y claro como Nido */
+  --foreground: #1c1917; /* stone-900 */
+  --accent: #047857; /* emerald-700, el verde característico de Nido */
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Forzamos tema claro siempre: Nido es un diseño claro y cálido,
+   y nuestros componentes usan clases fijas (stone/emerald) que
+   asumen fondo claro. Si dejamos que el modo oscuro del sistema
+   invierta los colores, el texto queda ilegible. */
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+/* selección de texto con el acento verde de Nido */
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* scrollbar sutil, coherente con el resto del diseño */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1; /* stone-300 */
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e; /* stone-400 */
+}
